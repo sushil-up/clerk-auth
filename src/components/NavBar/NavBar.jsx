@@ -16,14 +16,16 @@ const NavBar = () => {
   }
   return (
     <>
-      <div className="flex justify-between">
+      <div className="flex justify-between m-2 p-1">
         <NavigationMenu>
           <NavigationMenuList className="!flex !gap-4 ml-2">
             <NavigationMenuItem>
               <NavigationMenuLink href={routsurl.home}>Home</NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink href={routsurl.about}>About</NavigationMenuLink>
+              <NavigationMenuLink href={routsurl.about}>
+                About
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
               {/* <NavigationMenuLink href={routsurl.admin}>Admin</NavigationMenuLink> */}
