@@ -17,9 +17,9 @@ import {
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import { routsurl } from "@/utils/routs";
-import ConnectionBotton from "@/components/ConnectionBotton";
 import { checkStatus } from "@/utils/status";
 import FormInputField from "@/components/share/form/FormInputField";
+import SsoButton from "@/components/SsoButton";
 
 export default function SignInForm() {
   const { isLoaded, signIn, setActive } = useSignIn();
@@ -97,7 +97,7 @@ export default function SignInForm() {
             </Form>
           </CardContent>
           <CardFooter className="gap-4 ">
-            <ConnectionBotton />
+            <SsoButton />
           </CardFooter>
         </Card>
       </div>

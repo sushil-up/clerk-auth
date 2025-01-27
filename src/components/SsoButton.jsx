@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { routsurl } from "@/utils/routs";
 
-const ConnectionBotton = () => {
+const SsoButton = () => {
   const { signIn } = useSignIn();
   const { toast } = useToast();
   const handleGoogleSignIn = async () => {
@@ -58,4 +58,4 @@ const ConnectionBotton = () => {
   );
 };
 
-export default ConnectionBotton;
+export default SsoButton;
