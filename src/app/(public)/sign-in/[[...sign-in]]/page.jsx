@@ -2,7 +2,6 @@
 
 import { useSignIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { SignInValidation } from "@/components/FormValidation/SignInValidation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,10 +17,10 @@ import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import { routsurl } from "@/utils/routs";
 import { checkStatus } from "@/utils/status";
-import FormInputField from "@/components/share/form/FormInputField";
 import SsoButton from "@/components/SsoButton";
+import SignInForm from "@/components/SignInForm";
 
-export default function SignInForm() {
+export default function SignIn() {
   const { isLoaded, signIn, setActive } = useSignIn();
   const { toast } = useToast();
   const router = useRouter();
@@ -68,23 +67,7 @@ export default function SignInForm() {
           <CardContent>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSignIn)}>
-                <FormInputField
-                  name="email"
-                  form={form}
-                  type="email"
-                  placeholder="Enter your Email"
-                  label="Email"
-                />
-                <FormInputField
-                  name="password"
-                  form={form}
-                  type="password"
-                  placeholder="Enter your Password"
-                  label="Password"
-                />
-                <Button type="submit" size={"lg"}>
-                  Sign In
-                </Button>
+              <SignInForm form={form}/>
               </form>
               <p className="mt-2 ml-2">
                 {`Don't have an account?`}

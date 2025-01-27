@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
 import { useSignUp } from "@clerk/nextjs";
 import VerifyEmail from "@/components/VerifyEmail";
 import { SignUpValidation } from "@/components/FormValidation/SignUpValidation";
@@ -17,7 +16,7 @@ import {
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import { routsurl } from "@/utils/routs";
-import FormInputField from "@/components/share/form/FormInputField";
+import SignUpForm from "@/components/SignUpForm";
 
 const SignUp = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -82,43 +81,7 @@ const SignUp = () => {
               <CardContent>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSignUp)}>
-                    <FormInputField
-                      name="firstName"
-                      form={form}
-                      type="text"
-                      placeholder="Enter Your First Name"
-                      label="First Name"
-                    />
-                    <FormInputField
-                      name="lastName"
-                      form={form}
-                      type="text"
-                      placeholder="Enter Your Last Name"
-                      label="Last Name"
-                    />
-                    <FormInputField
-                      name="email"
-                      type="email"
-                      form={form}
-                      placeholder="Enter your Email"
-                      label="Email"
-                    />
-                    <FormInputField
-                      name="username"
-                      type="text"
-                      form={form}
-                      placeholder="Enter your UserName"
-                      label="Username"
-                    />
-                    <FormInputField
-                      name="password"
-                      form={form}
-                      placeholder="Enter your Password"
-                      label="Password"
-                      type="password"
-                    />
-                    <div id="clerk-captcha"></div>
-                    <Button type="submit">Sign Up</Button>
+                   <SignUpForm form={form}/>
                   </form>
                 </Form>
                 <p className="mt-2 ml-2">

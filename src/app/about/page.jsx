@@ -1,3 +1,4 @@
+"use client"
 import {
   Card,
   CardContent,
@@ -7,8 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import React from "react";
-
-const About = async () => {
+const About =  () => {
   return (
     <>
       <div className="flex justify-center py-8">
