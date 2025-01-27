@@ -1,3 +1,4 @@
 export const checkStatus ={
-    status:"complete"
+    status:"complete",
+    factorStatus:"needs_first_factor"
 }

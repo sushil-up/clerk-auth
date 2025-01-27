@@ -19,9 +19,13 @@ import { routsurl } from "@/utils/routs";
 import { checkStatus } from "@/utils/status";
 import SsoButton from "@/components/SsoButton";
 import SignInForm from "@/components/SignInForm";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import ForgotPassword from "@/components/forgot-password";
 
 export default function SignIn() {
   const { isLoaded, signIn, setActive } = useSignIn();
+  const [openForgotPassword, setOpenForgotPassword] = useState("false");
   const { toast } = useToast();
   const router = useRouter();
   const form = useForm({
@@ -44,7 +48,7 @@ export default function SignIn() {
       if (signInAttempt.status === checkStatus.status) {
         await setActive({ session: signInAttempt.createdSessionId });
         router.replace(routsurl.home);
-      } 
+      }
     } catch (err) {
       toast({
         variant: "destructive",
@@ -55,7 +59,9 @@ export default function SignIn() {
   };
 
   if (!isLoaded) return <p>Loading...</p>;
-
+  if (openForgotPassword === "true") {
+    return <ForgotPassword />;
+  }
   return (
     <>
       <div className="flex justify-center items-center h-screen">
@@ -67,8 +73,16 @@ export default function SignIn() {
           <CardContent>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSignIn)}>
-              <SignInForm form={form}/>
+                <SignInForm form={form} />
               </form>
+              <span className="">
+                <Button
+                  variant={"ghost"}
+                  onClick={() => setOpenForgotPassword("true")}
+                >
+                  {`Forgot Password ?`}
+                </Button>
+              </span>
               <p className="mt-2 ml-2">
                 {`Don't have an account?`}
                 <span className="ml-2">
