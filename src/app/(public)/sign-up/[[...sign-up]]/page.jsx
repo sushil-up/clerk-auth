@@ -38,7 +38,8 @@ const SignUp = () => {
       username: "",
       email: "",
       password: "",
-      fullName: "",
+      firstName: "",
+      lastName:""
     },
   });
 
@@ -48,10 +49,10 @@ const SignUp = () => {
       await signUp.create({
         emailAddress: data?.email,
         password: data?.password,
-        publicMetadata: {
-          username: data?.username,
-          fullName: data?.fullName,
-        },
+        username:data?.username,
+        first_name:data?.firstName,
+        last_name:data?.lastName
+
       });
 
       // Send the user an email with the verification code
@@ -73,7 +74,15 @@ const SignUp = () => {
   return (
     <>
       <div className="flex justify-center items-center h-screen">
-        {!verifying ? (
+        {verifying ? (
+          <>
+            <VerifyEmail
+              isLoaded={isLoaded}
+              signUp={signUp}
+              setActive={setActive}
+            />
+          </>
+        ) : (
           <>
             <Card className="mt-5 max-w-md w-full shadow-lg border rounded-lg bg-white">
               <CardHeader>
@@ -84,11 +93,18 @@ const SignUp = () => {
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSignUp)}>
                     <FormInputField
-                      name="fullName"
+                      name="firstName"
                       form={form}
                       type="text"
-                      placeholder="Enter Your fullname"
-                      label="Full Name"
+                      placeholder="Enter Your First Name"
+                      label="First Name"
+                    />
+                      <FormInputField
+                      name="lastName"
+                      form={form}
+                      type="text"
+                      placeholder="Enter Your Last Name"
+                      label="Last Name"
                     />
                     <FormInputField
                       name="email"
@@ -125,14 +141,6 @@ const SignUp = () => {
                 </p>
               </CardContent>
             </Card>
-          </>
-        ) : (
-          <>
-            <VerifyEmail
-              isLoaded={isLoaded}
-              signUp={signUp}
-              setActive={setActive}
-            />
           </>
         )}
       </div>

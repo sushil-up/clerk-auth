@@ -4,7 +4,10 @@ export const SignUpValidation = z.object({
     email: z.string().email( {
       message: "Invalid Email Address",
     }),
-    fullName: z.string().min(4, {
+    firstName: z.string().min(4, {
+      message: "Name must be at least 4 characters.",
+    }),
+    lastName: z.string().min(4, {
       message: "Name must be at least 4 characters.",
     }),
     username: z.string().min(4, {

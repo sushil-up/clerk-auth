@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  Form,
-} from "./ui/form";
+import { Form } from "./ui/form";
 import { Button } from "./ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,10 +28,12 @@ const VerifyEmail = ({ isLoaded, signUp, setActive }) => {
 
       // If verification was completed, set the session to active
       // and redirect the user
-      if (completeSignUp.status === checkStatus.status) {
+
+      if (completeSignUp.status === checkStatus?.status) {
         await setActive({ session: completeSignUp.createdSessionId });
         router.replace(routsurl.home);
       } else {
+        toast({ description: completeSignUp.status });
       }
     } catch (err) {
       // See https://clerk.com/docs/custom-flows/error-handling
