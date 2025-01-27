@@ -38,25 +38,21 @@ const ConnectionBotton = () => {
   };
   return (
     <>
+   
       <Button
         style={{
           backgroundColor: "#4285F4",
           color: "white",
-          marginTop: "10px",
         }}
         onClick={handleGoogleSignIn}
       >
-        Sign in with Google
+       <img src="/google.png" width="15%"/>  Sign in with Google
       </Button>
+    
       <Button
-        style={{
-          backgroundColor: "#4285F4",
-          color: "white",
-          marginTop: "10px",
-        }}
         onClick={handleGitHubSignIn}
       >
-        Sign in with GitHub
+        <img src="/github.png" width="15%"/>  Sign in with GitHub
       </Button>
     </>
   );

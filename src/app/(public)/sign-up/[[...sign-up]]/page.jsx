@@ -3,16 +3,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { useSignUp } from "@clerk/nextjs";
 import VerifyEmail from "@/components/VerifyEmail";
@@ -39,7 +30,7 @@ const SignUp = () => {
       email: "",
       password: "",
       firstName: "",
-      lastName:""
+      lastName: "",
     },
   });
 
@@ -49,10 +40,9 @@ const SignUp = () => {
       await signUp.create({
         emailAddress: data?.email,
         password: data?.password,
-        username:data?.username,
-        first_name:data?.firstName,
-        last_name:data?.lastName
-
+        username: data?.username,
+        first_name: data?.firstName,
+        last_name: data?.lastName,
       });
 
       // Send the user an email with the verification code
@@ -99,7 +89,7 @@ const SignUp = () => {
                       placeholder="Enter Your First Name"
                       label="First Name"
                     />
-                      <FormInputField
+                    <FormInputField
                       name="lastName"
                       form={form}
                       type="text"
