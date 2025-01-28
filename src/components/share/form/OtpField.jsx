@@ -25,7 +25,18 @@ const OtpField = ({ name, form, placeholder, label, type }) => {
           <FormItem>
             <FormLabel>{label}</FormLabel>
             <FormControl>
-             
+              <InputOTP maxLength={6} {...field}>
+                <InputOTPGroup>
+                  <InputOTPSlot index={0} />
+                  <InputOTPSlot index={1} />
+                  <InputOTPSeparator/>
+                  <InputOTPSlot index={2} />
+                  <InputOTPSlot index={3} />
+                  <InputOTPSeparator/>
+                  <InputOTPSlot index={4} />
+                  <InputOTPSlot index={5} />
+                </InputOTPGroup>
+              </InputOTP>
             </FormControl>
             <FormDescription></FormDescription>
             <FormMessage />

@@ -8,14 +8,14 @@ import { useToast } from "@/hooks/use-toast";
 import { routsurl } from "@/utils/routs";
 import { Card, CardContent, CardDescription, CardHeader } from "./ui/card";
 import { checkStatus } from "@/utils/status";
-import FormInputField from "./share/form/FormInputField";
+import OtpField from "./share/form/OtpField";
 
 const VerifyEmail = ({ isLoaded, signUp, setActive }) => {
   const { toast } = useToast();
   const form = useForm({
     resolver: zodResolver(VerifactionValidation),
     defaultValues: {
-      code: "",
+      code: "000000",
     },
   });
   const onVeryfyEmail = async (data) => {
@@ -51,14 +51,7 @@ const VerifyEmail = ({ isLoaded, signUp, setActive }) => {
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onVeryfyEmail)}>
-              <FormInputField
-                name="code"
-                form={form}
-                type="number"
-                placeholder="Enter your verification code"
-                label="Email Verification"
-              />
-
+              <OtpField name="code" form={form} label="One-Time Password" />
               <Button type="submit">Verify</Button>
             </form>
           </Form>

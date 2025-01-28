@@ -5,11 +5,12 @@ import { useForm } from "react-hook-form";
 import FormInputField from "./share/form/FormInputField";
 import { Button } from "./ui/button";
 import { checkStatus } from "@/utils/status";
+import OtpField from "./share/form/OtpField";
 
 const CreateNewPassword = ({ signIn, setActive,toast }) => {
   const form = useForm({
     defaultValues: {
-      code: "",
+      code: "000000",
       password: "",
     },
   });
@@ -43,13 +44,7 @@ const CreateNewPassword = ({ signIn, setActive,toast }) => {
             placeholder="Enter your new password"
             label="Create New Password"
           />
-          <FormInputField
-            name="code"
-            form={form}
-            type="number"
-            placeholder="Enter your verification code"
-            label="Email Verification"
-          />
+          <OtpField name="code" form={form} label="One-Time Password"/>
           <Button type="submit">Reset Password</Button>
         </form>
       </Form>
