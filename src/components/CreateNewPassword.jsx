@@ -15,7 +15,6 @@ const CreateNewPassword = ({ signIn, setActive,toast }) => {
     },
   });
   const onCreatePassword = async (data) => {
-    console.log("data", data);
     try {
       const newPassword = await signIn?.attemptFirstFactor({
         strategy: "reset_password_email_code",

@@ -28,7 +28,10 @@ const VerifyEmail = ({ isLoaded, signUp, setActive }) => {
 
       // If verification was completed, set the session to active
       // and redirect the user
-
+      console.log(
+        "completeSignUpcompleteSignUpcompleteSignUpcompleteSignUp",
+        completeSignUp
+      );
       if (completeSignUp.status === checkStatus?.status) {
         await setActive({ session: completeSignUp.createdSessionId });
         router.replace(routsurl.home);

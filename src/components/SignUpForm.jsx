@@ -26,6 +26,13 @@ const SignUpForm = ({ form }) => {
         placeholder="Enter your Email"
         label="Email"
       />
+       {/* <FormInputField
+        name="phoneNumber"
+        // type="tel"
+        form={form}
+        placeholder="Enter your Phone Number"
+        label="Phone Number"
+      /> */}
       <FormInputField
         name="username"
         type="text"

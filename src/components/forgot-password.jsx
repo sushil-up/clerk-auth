@@ -11,8 +11,9 @@ import {
 } from "@/components/ui/card";
 import { Form } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
+import { routsurl } from "@/utils/routs";
 import { checkStatus } from "@/utils/status";
-import { useSignIn } from "@clerk/nextjs";
+import { useAuth, useSignIn } from "@clerk/nextjs";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -25,6 +26,10 @@ const ForgotPassword = () => {
   const [successfulCreation, setSuccessfulCreation] = useState("false");
   const { isLoaded, signIn, setActive } = useSignIn();
   const { toast } = useToast();
+  const { isSignedIn } = useAuth();
+  if (isSignedIn) {
+    router.push(routsurl.home);
+  }
   const onResetPassword = async (data) => {
     try {
       const verifyEmail = await signIn?.create({

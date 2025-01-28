@@ -20,7 +20,7 @@ import SignUpForm from "@/components/SignUpForm";
 
 const SignUp = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
-  const [verifying, setVerifying] = useState();
+  const [verifyEmail, setVerifyEmail] = useState();
   const { toast } = useToast();
   const form = useForm({
     resolver: zodResolver(SignUpValidation),
@@ -30,10 +30,12 @@ const SignUp = () => {
       password: "",
       firstName: "",
       lastName: "",
+      // phoneNumber:""
     },
   });
 
   const onSignUp = async (data) => {
+    console.log("data",data)
     if (!isLoaded) return;
     try {
       await signUp.create({
@@ -42,6 +44,7 @@ const SignUp = () => {
         username: data?.username,
         first_name: data?.firstName,
         last_name: data?.lastName,
+        // phone_number:data?.phoneNumber,
       });
 
       // Send the user an email with the verification code
@@ -51,7 +54,7 @@ const SignUp = () => {
 
       // Set 'verifying' true to display second form
       // and capture the OTP code
-      setVerifying(true);
+      setVerifyEmail(true);
     } catch (err) {
       toast({
         variant: "destructive",
@@ -63,7 +66,7 @@ const SignUp = () => {
   return (
     <>
       <div className="flex justify-center items-center h-screen">
-        {verifying ? (
+        {verifyEmail ? (
           <>
             <VerifyEmail
               isLoaded={isLoaded}
