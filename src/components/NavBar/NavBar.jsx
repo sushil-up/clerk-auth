@@ -9,6 +9,7 @@ import {
 import { useUser } from "@clerk/nextjs";
 import { UserButton } from "@clerk/nextjs";
 import { routsurl } from "@/utils/routs";
+import Link from "next/link";
 const NavBar = () => {
   const { user } = useUser();
   if (!user) {
@@ -20,11 +21,13 @@ const NavBar = () => {
         <NavigationMenu>
           <NavigationMenuList className="!flex !gap-4 ml-2">
             <NavigationMenuItem>
-              <NavigationMenuLink href={routsurl.home}>Home</NavigationMenuLink>
+              <NavigationMenuLink>
+                <Link href={routsurl.home}>Home</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink href={routsurl.about}>
-                About
+              <NavigationMenuLink>
+                <Link href={routsurl.about}>About</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>

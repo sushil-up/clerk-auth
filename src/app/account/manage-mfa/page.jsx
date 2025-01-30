@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 // If TOTP is enabled, provide the option to disable it
 const TotpEnabled = () => {
@@ -29,7 +30,7 @@ const TotpDisabled = () => {
       <p>
         Add TOTP via authentication app -{' '}
         <Link href="/account/manage-mfa/add">
-          <button>Add</button>
+          <Button>Add</Button>
         </Link>
       </p>
     </div>
@@ -89,26 +90,33 @@ export default function ManageMFA() {
 
   return (
     <>
-      <h1>User MFA Settings</h1>
+     <Card className="max-w-lg mx-auto mt-8 shadow-lg">
+  <CardHeader>
+    <CardTitle className="text-xl font-semibold">User MFA Settings</CardTitle>
+  </CardHeader>
+  <CardContent className="space-y-4">
+    {/* Manage TOTP MFA */}
+    {user.totpEnabled ? <TotpEnabled /> : <TotpDisabled />}
 
-      {/* Manage TOTP MFA */}
-      {user.totpEnabled ? <TotpEnabled /> : <TotpDisabled />}
+    {/* Manage backup codes */}
+    {user.backupCodeEnabled && user.twoFactorEnabled && (
+      <Card className="p-4">
+        <CardContent className="flex justify-between items-center">
+          <p className="text-gray-700">Generate new backup codes?</p>
+          <Button onClick={() => setShowNewCodes(true)}>Generate</Button>
+        </CardContent>
+      </Card>
+    )}
+    
+    {showNewCodes && (
+      <>
+        <GenerateBackupCodes />
+        <Button className="w-full mt-2" onClick={() => setShowNewCodes(false)}>Done</Button>
+      </>
+    )}
+  </CardContent>
+</Card>
 
-      {/* Manage backup codes */}
-      {user.backupCodeEnabled && user.twoFactorEnabled && (
-        <div>
-          <p>
-            Generate new backup codes? -{' '}
-            <Button onClick={() => setShowNewCodes(true)}>Generate</Button>
-          </p>
-        </div>
-      )}
-      {showNewCodes && (
-        <>
-          <GenerateBackupCodes />
-          <Button onClick={() => setShowNewCodes(false)}>Done</Button>
-        </>
-      )}
     </>
   );
 }
