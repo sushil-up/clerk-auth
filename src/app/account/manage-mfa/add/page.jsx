@@ -67,7 +67,8 @@ function VerifyTotpScreen({ setStep }) {
       await user?.verifyTOTP({ code });
       setStep("backupcodes");
     } catch (err) {
-      console.error(JSON.stringify(err, null, 2));
+      console.log("error",err.error)
+
     }
   };
 

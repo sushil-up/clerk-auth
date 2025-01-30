@@ -46,6 +46,7 @@ export default function SignIn() {
       });
 
       if (signInAttempt?.status === "needs_second_factor") {
+
         router.replace(routsurl.factorTwo);
       } else if (signInAttempt?.createdSessionId) {
         await setActive({ session: signInAttempt.createdSessionId });

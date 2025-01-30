@@ -9,28 +9,32 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { useSignIn } from "@clerk/nextjs";
 const FactorTwo = () => {
+  const { isLoaded, signIn, setActive } = useSignIn();
   const [useBackupCode, setUseBackupCode] = useState(false);
   const [code, setCode] = useState("");
   const { toast } = useToast();
   const handleSecondFactor = async (e) => {
     e.preventDefault();
+    console.log("wyefuyduybudsvgfvduyfafasd",e.target?.value)
     try {
       const signInAttempt = await signIn.attemptSecondFactor({
         strategy: useBackupCode ? "backup_code" : "totp",
         code,
       });
+      console.log("signInAttemptsignInAttemptsignInAttempt",signInAttempt)
 
       if (signInAttempt.status === checkStatus.status) {
         await setActive({ session: signInAttempt.createdSessionId });
         router.replace(routsurl.home);
       }
     } catch (err) {
-       
-      toast({
-        variant: "destructive",
-        description: "Invalid verification code. Please try again.",
-      });
+       console.log("fdyhrtyefdsdsgsgers",err.error)
+      // toast({
+      //   variant: "destructive",
+      //   description: "Invalid verification code. Please try again.",
+      // });
     }
   };
   return (
