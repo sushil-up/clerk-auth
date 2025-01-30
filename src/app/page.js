@@ -14,7 +14,7 @@ import Link from "next/link";
 
 export default function Home() {
   const { user } = useUser();
-  console.log("userhsfgbdsibfiusdf",user)
+  
   return (
     <div className="flex justify-center py-8 ">
       <Card className="mt-5 max-w-3xl w-full shadow-lg border rounded-lg bg-white">

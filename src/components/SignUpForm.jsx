@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import FormInputField from "./share/form/FormInputField";
 import { Button } from "./ui/button";
+import { Checkbox } from "./ui/checkbox";
+import VerifyEmail from "./VerifyEmail";
 
-const SignUpForm = ({ form }) => {
+const SignUpForm = ({ form}) => {
+
   return (
     <>
       <FormInputField
@@ -26,13 +29,15 @@ const SignUpForm = ({ form }) => {
         placeholder="Enter your Email"
         label="Email"
       />
-       {/* <FormInputField
+      <FormInputField
         name="phoneNumber"
         // type="tel"
         form={form}
         placeholder="Enter your Phone Number"
         label="Phone Number"
-      /> */}
+      />
+     
+
       <FormInputField
         name="username"
         type="text"

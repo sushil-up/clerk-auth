@@ -16,12 +16,12 @@ export const SignUpValidation = z.object({
   password: z.string().min(6, {
     message: "Email must be at least 6 characters.",
   }),
-  // phoneNumber: z
-  //   .string()
-  //   .min(10, {
-  //     message: "Phone Number must be at least 10 digits.",
-  //   })
-  //   .max(10, {
-  //     message: "Phone number must be 10 digits",
-  //   }),
+  phoneNumber: z
+    .string()
+    .min(10, {
+      message: "Phone Number must be at least 10 digits.",
+    })
+    .max(15, {
+      message: "Phone number must be 15 digits",
+    }),
 });

@@ -4,5 +4,6 @@ signUp:"/sign-up",
 home:"/",
 about:"/about",
 admin:"/admin",
-ssoCallBack:"/sso-callback"
+ssoCallBack:"/sso-callback",
+factorTwo:"/sign-in/factor-two"
 }

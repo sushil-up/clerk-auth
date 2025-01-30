@@ -21,7 +21,6 @@ const CreateNewPassword = ({ signIn, setActive,toast }) => {
         code: data?.code,
         password: data?.password,
       });
-      console.log("newPassword", newPassword);
       if (newPassword?.status === checkStatus?.status) {
         setActive({ session: newPassword?.createdSessionId });
       }
