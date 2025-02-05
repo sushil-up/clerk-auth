@@ -4,6 +4,7 @@ signUp:"/sign-up",
 home:"/",
 about:"/about",
 admin:"/admin",
-ssoCallBack:"/sso-callback",
-factorTwo:"/sign-in/factor-two"
+ssoCallBack:"/sign-in/sso-callback",
+factorTwo:"/sign-in/factor-two",
+security:"account/manage-mfa"
 }

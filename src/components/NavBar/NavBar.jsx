@@ -30,8 +30,13 @@ const NavBar = () => {
                 <Link href={routsurl.about}>About</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
+            {/* <NavigationMenuItem> */}
+            {/* <NavigationMenuLink href={routsurl.admin}>Admin</NavigationMenuLink> */}
+            {/* </NavigationMenuItem> */}
             <NavigationMenuItem>
-              {/* <NavigationMenuLink href={routsurl.admin}>Admin</NavigationMenuLink> */}
+              <NavigationMenuLink>
+                <Link href={routsurl.security}>Security</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>

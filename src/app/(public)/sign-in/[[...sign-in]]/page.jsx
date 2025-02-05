@@ -1,7 +1,7 @@
 "use client";
 
 import { useSignIn } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { SignInValidation } from "@/components/FormValidation/SignInValidation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,9 +23,9 @@ import { useState } from "react";
 import ForgotPassword from "@/components/forgot-password";
 
 export default function SignIn() {
+
   const { isLoaded, signIn, setActive } = useSignIn();
   const [openForgotPassword, setOpenForgotPassword] = useState(false);
-  const [displayTOTP, setDisplayTOTP] = useState(false);
 
   const { toast } = useToast();
   const router = useRouter();
@@ -67,8 +67,7 @@ export default function SignIn() {
     return <ForgotPassword />;
   }
 
-  if (displayTOTP) {
-  }
+
 
   return (
     <div className="flex justify-center items-center min-h-screen">

@@ -38,7 +38,6 @@ const SsoButton = () => {
   };
   return (
     <>
-   
       <Button
         style={{
           backgroundColor: "#4285F4",
@@ -46,13 +45,11 @@ const SsoButton = () => {
         }}
         onClick={handleGoogleSignIn}
       >
-       <img src="/google.png" width="15%"/>  Sign in with Google
+        <img src="/google.png" width="15%" /> Sign in with Google
       </Button>
-    
-      <Button
-        onClick={handleGitHubSignIn}
-      >
-        <img src="/github.png" width="15%"/>  Sign in with GitHub
+
+      <Button onClick={handleGitHubSignIn}>
+        <img src="/github.png" width="15%" /> Sign in with GitHub
       </Button>
     </>
   );

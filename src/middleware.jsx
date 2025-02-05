@@ -2,7 +2,7 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { routsurl } from "./utils/routs";
 
-const isProtectedRoutes = createRouteMatcher([routsurl.about]);
+const isProtectedRoutes = createRouteMatcher([routsurl.about,routsurl.security]);
 const isPublicRoute = createRouteMatcher([routsurl.signIn, routsurl.signUp,routsurl.factorTwo]);
 const isAdminRoute = createRouteMatcher([routsurl.admin]);
 export default clerkMiddleware(async (auth, request) => {
