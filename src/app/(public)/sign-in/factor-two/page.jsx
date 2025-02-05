@@ -13,7 +13,6 @@ import { useSignIn } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 const FactorTwo = () => {
   const pathname= usePathname()
-  console.log("pathnamejhbdfsdfuisdhfsdjhfiuhsgd",pathname)
   const { isLoaded, signIn, setActive } = useSignIn();
   const [useBackupCode, setUseBackupCode] = useState(false);
   const [code, setCode] = useState("");
